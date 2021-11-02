@@ -1,1 +1,29 @@
-<p>FORMULAIRE Create Kitten</p>
+<h1>Inscrivez un chaton</h1>
+
+<form
+  [formGroup]="kittenForm"
+  (ngSubmit)="thisForm.valid && onSubmit()"
+  #thisForm="ngForm"
+>
+  <label for="name"
+    >Nom :
+    <input type="text" name="name" formControlName="kittenName" />
+  </label>
+
+  <label for="race"
+    >Race :
+    <input type="text" name="race" formControlName="race" />
+  </label>
+
+  <label for="birthday"
+    >Date de naissance :
+    <input type="date" name="birthday" formControlName="birthdate" />
+  </label>
+
+  <label for="image"
+    >Lien de l'image :
+    <input type="url" name="image" formControlName="imgLink" />
+  </label>
+
+  <button type="submit">Valider</button>
+</form>
