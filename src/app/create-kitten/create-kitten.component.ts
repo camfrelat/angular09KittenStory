@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { Kitten } from '../shared/models/kitten.model';
@@ -8,9 +8,7 @@ import { Kitten } from '../shared/models/kitten.model';
   templateUrl: './create-kitten.component.html',
   styleUrls: ['./create-kitten.component.css'],
 })
-export class CreateKittenComponent implements OnInit {
-  kittens: Kitten[];
-
+export class CreateKittenComponent {
   kittenForm = this.formBuilder.group({
     kittenName: ['', Validators.required],
     race: ['', Validators.required],
@@ -18,27 +16,20 @@ export class CreateKittenComponent implements OnInit {
     imgLink: ['', Validators.required],
   });
 
-  @Output() public createKitten: EventEmitter<Object> = new EventEmitter();
+  @Output() public sendKitten: EventEmitter<Kitten> =
+    new EventEmitter<Kitten>();
 
-  constructor(private formBuilder: FormBuilder) {
-    this.kittens = new Array();
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
-  onSubmit(): void {
-    console.log(this.kittenForm.value);
-    this.kittens.push(
+  //Create a new object Kitten and send it via emit method to the parent 'list-kitten-component'
+  createKitten(): void {
+    this.sendKitten.emit(
       new Kitten(
-        this.kittenForm.value('kittenName'),
-        this.kittenForm.value('race'),
-        this.kittenForm.value('birthdate'),
-        this.kittenForm.value('imgLink')
+        this.kittenForm.controls.kittenName.value,
+        this.kittenForm.controls.race.value,
+        this.kittenForm.controls.birthdate.value,
+        this.kittenForm.controls.imgLink.value
       )
     );
-
-    // this.createKitten.emit(this.kittenForm.value);
-  }
-
-  ngOnInit(): void {
-    this.kittens.push(new Kitten('toto', 'Européen', '02/11/2020', 'url'));
   }
 }

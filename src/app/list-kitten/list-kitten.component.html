@@ -1,15 +1,40 @@
-<h2>Liste des chatons à adopter</h2>
+<div class="container row">
+  <div class="col-10">
+    <app-create-kitten (sendKitten)="addKitten($event)"></app-create-kitten>
 
-<div>
-  <img src="url" />
+    <h2>Liste des chatons à adopter</h2>
 
-  <div>
-    <ul>
-      <li>Nom : kitten One</li>
-      <li>Race : Européen</li>
-      <li>Date de Naissance :02/11/2020</li>
-    </ul>
+    <div class="row justify-content-center">
+      <div
+        class="card col-6 p-2 m-3"
+        style="width: 18rem"
+        *ngFor="let currentKitten of kittens; let index = index"
+      >
+        <img src="{{ currentKitten.img }}" class="card-img-top" />
+
+        <div class="card-body">
+          <ul>
+            <li>Nom : {{ currentKitten.name }}</li>
+            <li>Race : {{ currentKitten.race }}</li>
+            <li>Date de Naissance : {{ currentKitten.birthdate }}</li>
+          </ul>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="adoptKitten(index)"
+        >
+          Adopter
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <h3>Vos chatons</h3>
+    <app-user-kitten
+      *ngFor="let currentKitten of userKittens"
+      [kitten]="currentKitten"
+    ></app-user-kitten>
   </div>
 </div>
-
-<app-user-kitten [kittenImg]=""></app-user-kitten>

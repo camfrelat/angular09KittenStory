@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Kitten } from '../shared/models/kitten.model';
 
 @Component({
   selector: 'app-user-kitten',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./user-kitten.component.css'],
 })
 export class UserKittenComponent implements OnInit {
-  @Input() kittenImg: any;
+  @Input() kitten: Kitten | undefined;
   constructor() {}
 
   ngOnInit(): void {}

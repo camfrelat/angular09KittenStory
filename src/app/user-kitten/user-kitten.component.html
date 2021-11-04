@@ -1,5 +1,8 @@
-<p>side bar with my kittens with only the image</p>
-
-<div>
-  <img {{}} />
+<div class="show">
+  <div *ngIf="kitten">
+    <p>{{ kitten.name }}</p>
+    <p>{{ kitten.race }}</p>
+    <p>{{ kitten.birthdate }}</p>
+    <p>{{ kitten.img }}</p>
+  </div>
 </div>

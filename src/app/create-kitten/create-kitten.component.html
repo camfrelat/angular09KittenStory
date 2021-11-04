@@ -1,29 +1,61 @@
-<h1>Inscrivez un chaton</h1>
+<div class="container">
+  <h1>Inscrivez un chaton</h1>
 
-<form
-  [formGroup]="kittenForm"
-  (ngSubmit)="thisForm.valid && onSubmit()"
-  #thisForm="ngForm"
->
-  <label for="name"
-    >Nom :
-    <input type="text" name="name" formControlName="kittenName" />
-  </label>
+  <form
+    [formGroup]="kittenForm"
+    (ngSubmit)="thisForm.valid && createKitten()"
+    #thisForm="ngForm"
+  >
+    <div class="row mb-3">
+      <label for="name" class="col-sm-4 col-form-label">Nom : </label>
+      <div class="col-sm-7">
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          formControlName="kittenName"
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="race" class="col-sm-4 col-form-label">Race : </label>
+      <div class="col-sm-7">
+        <input
+          type="text"
+          name="race"
+          class="form-control"
+          formControlName="race"
+        />
+      </div>
+    </div>
 
-  <label for="race"
-    >Race :
-    <input type="text" name="race" formControlName="race" />
-  </label>
+    <div class="row mb-3">
+      <label for="birthday" class="col-sm-4 col-form-label"
+        >Date de naissance :
+      </label>
+      <div class="col-sm-7">
+        <input
+          type="date"
+          name="birthday"
+          class="form-control"
+          formControlName="birthdate"
+        />
+      </div>
+    </div>
 
-  <label for="birthday"
-    >Date de naissance :
-    <input type="date" name="birthday" formControlName="birthdate" />
-  </label>
-
-  <label for="image"
-    >Lien de l'image :
-    <input type="url" name="image" formControlName="imgLink" />
-  </label>
-
-  <button type="submit">Valider</button>
-</form>
+    <div class="row mb-3">
+      <label for="image" class="col-sm-4 col-form-label"
+        >Lien de l'image :
+      </label>
+      <div class="col-sm-7">
+        <input
+          type="url"
+          name="image"
+          class="form-control"
+          formControlName="imgLink"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Valider</button>
+  </form>
+</div>
