@@ -1,5 +1,5 @@
 import { Component, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { Kitten } from '../shared/models/kitten.model';
 
@@ -20,6 +20,10 @@ export class CreateKittenComponent {
     new EventEmitter<Kitten>();
 
   constructor(private formBuilder: FormBuilder) {}
+
+  // invalidInput(input: FormControl): boolean {
+  //   if (!this.kittenForm.controls.input.value) return false;
+  // }
 
   //Create a new object Kitten and send it via emit method to the parent 'list-kitten-component'
   createKitten(): void {
