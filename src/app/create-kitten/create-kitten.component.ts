@@ -21,11 +21,8 @@ export class CreateKittenComponent {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  // invalidInput(input: FormControl): boolean {
-  //   if (!this.kittenForm.controls.input.value) return false;
-  // }
-
   //Create a new object Kitten and send it via emit method to the parent 'list-kitten-component'
+  //reset form and send alert to user
   createKitten(): void {
     this.sendKitten.emit(
       new Kitten(
@@ -35,5 +32,7 @@ export class CreateKittenComponent {
         this.kittenForm.controls.imgLink.value
       )
     );
+    alert('votre chatton a été ajouté');
+    this.kittenForm.reset();
   }
 }

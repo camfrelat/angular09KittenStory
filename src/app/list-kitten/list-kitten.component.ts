@@ -9,10 +9,12 @@ import { Kitten } from '../shared/models/kitten.model';
 export class ListKittenComponent implements OnInit {
   kittens: Kitten[];
   userKittens: Kitten[];
+  showInfo: boolean;
 
   constructor() {
     this.kittens = new Array();
     this.userKittens = new Array();
+    this.showInfo = true;
   }
 
   addKitten(kitten: Kitten) {

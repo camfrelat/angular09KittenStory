@@ -1,0 +1,8 @@
+.formDisabled {
+  background-color: rgb(179, 179, 179);
+  cursor: not-allowed;
+}
+
+.invalidInput {
+  color: red;
+}

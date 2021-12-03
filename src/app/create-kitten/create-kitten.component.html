@@ -16,6 +16,14 @@
       />
       <!-- [ngClass]="{ 'is-invalid': invalidInput }"  se trouvait dans la balise input du dessus -->
       <label for="name">Nom : </label>
+      <div
+        *ngIf="
+          kittenForm.get('kittenName')?.touched &&
+          kittenForm.get('kittenName')?.errors
+        "
+      >
+        <small class="invalidInput">Le nom est requis.</small>
+      </div>
     </div>
     <div class="form-floating mb-3">
       <input
@@ -26,6 +34,13 @@
         formControlName="race"
       />
       <label for="race">Race : </label>
+      <div
+        *ngIf="
+          kittenForm.get('race')?.touched && kittenForm.get('race')?.errors
+        "
+      >
+        <small class="invalidInput">La race est requise.</small>
+      </div>
     </div>
 
     <div class="form-floating mb-3">
@@ -37,6 +52,14 @@
         formControlName="birthdate"
       />
       <label for="birthday">Date de naissance : </label>
+      <div
+        *ngIf="
+          kittenForm.get('birthdate')?.touched &&
+          kittenForm.get('birthdate')?.errors
+        "
+      >
+        <small class="invalidInput">La date de naissance est requise.</small>
+      </div>
     </div>
 
     <div class="form-floating mb-3">
@@ -48,7 +71,21 @@
         formControlName="imgLink"
       />
       <label for="image">Lien de l'image : </label>
+      <div
+        *ngIf="
+          kittenForm.get('imgLink')?.touched &&
+          kittenForm.get('imgLink')?.errors
+        "
+      >
+        <small class="invalidInput">Une image est requise.</small>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Valider</button>
+    <button
+      [ngClass]="{ formDisabled: kittenForm.invalid }"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Valider
+    </button>
   </form>
 </div>

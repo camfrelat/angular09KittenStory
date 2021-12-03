@@ -1,0 +1,8 @@
+.showHover:hover {
+  display: block;
+  color: red;
+}
+
+.hideInfos {
+  display: none;
+}

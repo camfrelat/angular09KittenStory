@@ -1,8 +1,10 @@
-<div class="show">
-  <div *ngIf="kitten">
-    <p>{{ kitten.name }}</p>
-    <p>{{ kitten.race }}</p>
-    <p>{{ kitten.birthdate }}</p>
-    <p>{{ kitten.img }}</p>
+<div class="row">
+  <div *ngIf="kitten" class="card p-2 m-3">
+    <img src="{{ kitten.img }}" alt="kitten image" class="card-img-top" />
+    <div class="card-body">
+      <p>Nom : {{ kitten.name }}</p>
+      <p>Race : {{ kitten.race }}</p>
+      <p>Date de naissance{{ kitten.birthdate }}</p>
+    </div>
   </div>
 </div>

@@ -4,7 +4,11 @@
 
     <h2>Liste des chatons à adopter</h2>
 
-    <div class="row justify-content-center">
+    <div
+      class="row justify-content-center"
+      (mouseover)="showInfo = true"
+      (mouseout)="showInfo = false"
+    >
       <div
         class="card col-6 p-2 m-3"
         style="width: 18rem"
@@ -15,8 +19,12 @@
         <div class="card-body">
           <ul>
             <li>Nom : {{ currentKitten.name }}</li>
-            <li>Race : {{ currentKitten.race }}</li>
-            <li>Date de Naissance : {{ currentKitten.birthdate }}</li>
+            <div>
+              <div *ngIf="!showInfo">
+                <li>Race : {{ currentKitten.race }}</li>
+                <li>Date de naissance : {{ currentKitten.birthdate }}</li>
+              </div>
+            </div>
           </ul>
         </div>
 
