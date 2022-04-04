@@ -19,8 +19,8 @@
         <div class="card-body">
           <ul>
             <li>Nom : {{ currentKitten.name }}</li>
-            <div>
-              <div *ngIf="!showInfo">
+            <div (mouseover)="showInfo = true" (mouseout)="showInfo = false">
+              <div *ngIf="showInfo">
                 <li>Race : {{ currentKitten.race }}</li>
                 <li>Date de naissance : {{ currentKitten.birthdate }}</li>
               </div>
